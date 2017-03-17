@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from wxpy.utils import handle_response
 
 

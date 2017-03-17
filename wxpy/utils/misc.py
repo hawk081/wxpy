@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import inspect
 import re
 from functools import wraps
@@ -191,6 +192,8 @@ def wrap_user_name(user_or_users):
             return x.raw
         elif isinstance(x, str):
             return {'UserName': user_or_users}
+        elif isinstance(x, unicode):
+            return {'UserName': unicode}
         else:
             raise TypeError('Unsupported type: {}'.format(type(x)))
 
@@ -213,6 +216,8 @@ def get_user_name(user_or_users):
         elif isinstance(x, dict):
             return x['UserName']
         elif isinstance(x, str):
+            return x
+        elif isinstance(x, unicode):
             return x
         else:
             raise TypeError('Unsupported type: {}'.format(type(x)))
